@@ -1,0 +1,87 @@
+@import "../../App.scss";
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 50%;
+  height: 100%;
+  // border: 1px solid blue;
+  margin: 1%;
+  // box-shadow: 2px 2px 12px 2px rgba(176, 170, 170, 0.62);
+  // -webkit-box-shadow: 2px 2px 12px 2px rgba(176, 170, 170, 0.62);
+  // -moz-box-shadow: 2px 2px 12px 2px rgba(176, 170, 170, 0.62);
+  // border-radius: 5px;
+
+  h2 {
+    color: palevioletred;
+  }
+
+  .input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: max(300px, 60%);
+    // border: 1px solid white;
+
+    .input-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      // justify-content: space-between;
+
+      label {
+        width: max(150px, 20%);
+      }
+
+      input {
+        height: 30px;
+        border-radius: 5px;
+        width: max(150px, 20%);
+      }
+
+      #size,
+      #input,
+      select {
+        // margin-left: 80px;
+        margin-left: 6%;
+      }
+    }
+
+    label,
+    input,
+    select,
+    option {
+      color: antiquewhite;
+    }
+
+    select {
+      width: 150px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100px;
+      height: 30px;
+      margin-left: -25%;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    button:hover {
+      transform: translate(1px, 1px);
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .layout {
+    width: 100%;
+    // border: 1px solid blue;
+  }
+}

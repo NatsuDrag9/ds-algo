@@ -1,0 +1,116 @@
+@import "../../App.scss";
+
+.stack {
+  height: 100%;
+  width: 100%;
+  //   border: 1px solid rgb(196, 174, 174);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  h2 {
+    color: palevioletred;
+  }
+
+  .body {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .rect-wrapper {
+      height: 70%;
+      width: max(100px, 30%);
+      margin-right: 5%;
+      //   border: 1px solid aqua;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+
+      .rect {
+        height: 50px;
+        width: max(100px, 50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid aliceblue;
+        margin: 0;
+        background-color: grey;
+      }
+
+      .rect.peek-animation {
+        animation-name: peekBackgroundChange;
+        animation-duration: 1.5s;
+      }
+
+      .length {
+        height: 60px;
+        width: max(200px, 100%);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .stack {
+    h2 {
+        font-size: $header-font-size-small;
+    }
+
+    .body {
+      height: 80%;
+      width: 95%;
+      flex-direction: column;
+      font-size: $body-font-size-small;
+
+      .rect-wrapper {
+        height: 50%;
+
+        .length {
+          width: 220px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $monitor-width) {
+    .stack {
+        h2 {
+            font-size: $header-font-size-large;
+        }
+    
+        .body {
+          font-size: $body-font-size-large;
+
+          .rect-wrapper {
+            height: 70%;
+            width: max(100px, 30%);
+            //   border: 1px solid aqua;
+      
+            .rect {
+              height: 60px;
+              width: max(200px, 50%);
+            }
+      
+            .length {
+              height: 80px;
+              width: min(220px, 100%);
+            }
+          }
+        }
+      }
+}
+
+@keyframes peekBackgroundChange {
+  0% {
+    background-color: grey; /* Initial background color */
+  }
+  100% {
+    background-color: palevioletred; /* Color you want to change to */
+  }
+}
