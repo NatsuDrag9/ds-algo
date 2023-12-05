@@ -1,0 +1,198 @@
+@import "../../App.scss";
+
+.linked-list {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  //   border: 1px solid blue;
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    // border: 1px solid beige;
+
+    h2 {
+      color: palevioletred;
+    }
+
+    .input-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: space-evenly;
+
+        label {
+          width: max(150px, 20%);
+          margin: 5%;
+        }
+
+        input {
+          height: 30px;
+          border-radius: 5px;
+          width: max(150px, 20%);
+        }
+      }
+
+      label,
+      input,
+      select,
+      option {
+        color: antiquewhite;
+      }
+
+      select {
+        width: 150px;
+        height: 30px;
+        cursor: pointer;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      button:hover {
+        transform: translate(1px, 1px);
+      }
+    }
+
+    .head {
+      font-size: 0.8rem;
+      align-self: flex-start;
+    }
+  }
+
+  .rect-wrapper {
+    width: 50%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    // border: 1px solid wheat;
+
+    .rect {
+      border: 1px solid bisque;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      width: max(200px, 65%);
+      font-size: $body-font-size-small;
+      position: relative;
+      margin: 5% 0;
+      border-radius: 5px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(0%, 80%);
+        height: 65%;
+        border-top: 2px solid bisque;
+        border-right: 2px solid bisque;
+      }
+
+      p {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+        
+      }
+
+      .value {
+        border-right: 1px solid bisque;
+        background-color: grey;
+      }
+
+      .next {
+        background-color: rgb(141, 119, 48);
+      }
+    }
+
+    .rect.head {
+      &::before {
+        content: '**';
+        position: absolute;
+        top: 0;
+        left: -10%;
+        color: rgb(209, 168, 92);
+        animation: blink 1s infinite alternate;
+      }
+    }
+
+    .rect.last {
+      &::after{
+        display: none;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .linked-list {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid blue;
+
+    .form-wrapper {
+        width: max(90%, 180px);
+
+        h2 {
+          font-size: $header-font-size-small
+        }
+
+        .input-form {
+          font-size: $body-font-size-small;
+        }
+    }
+
+    .rect-wrapper{
+      width: 100%;
+      
+      .rect {
+        height: 8%;
+        font-size: $body-font-size-vsmall;
+
+        &::after {
+          top: 30%;
+          transform: translate(0%, 80%);
+          height: 100%;
+        }
+      }
+    }
+
+  }
+}

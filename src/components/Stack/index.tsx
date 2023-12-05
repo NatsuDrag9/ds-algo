@@ -38,7 +38,7 @@ function Stack() {
         <Layout
           operations={["Push", "Pop", "Peek", "Length"]}
           setSize={stackOperations.setStackSize}
-          updateStackState={updateStackContext}
+          updateState={updateStackContext}
         />
         <div className="rect-wrapper">
           {stackOperations.stack
