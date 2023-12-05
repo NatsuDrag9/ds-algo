@@ -69,13 +69,15 @@ function LinkedList() {
         return (
           <p>Length of the linked list: {linkedList.getLength()}</p>
         );
-      case llOperations[5]:
-        return <p>Linked list reversed</p>;
+      // case llOperations[5]:
+      //   return <p>Linked list reversed</p>;
       default:
         return null;
     }
   };
 
+  // Adding linkedlist.head as dependency to callback
+  // when head changes
   const renderList = useCallback(() => {
     const elements = [];
     if (linkedList.linkedList.head !== null) {
