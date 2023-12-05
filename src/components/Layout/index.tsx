@@ -1,27 +1,17 @@
 import "./style.scss";
 import { useState } from "react";
-import { StackValueInterface } from "../../interfaces";
+import { StackValueInterface, InputFormElement } from "../../interfaces";
 
 interface PropsInterface {
   operations: string[];
   setSize: (newSize: number) => void;
-  updateStackState: (newValue: StackValueInterface) => void;
-}
-
-interface FormElements extends HTMLFormControlsCollection {
-  size: HTMLInputElement;
-  input: HTMLInputElement;
-  operations: HTMLSelectElement;
-}
-
-interface InputFormElement extends HTMLFormElement {
-  readonly elements: FormElements;
+  updateState: (newValue: StackValueInterface) => void;
 }
 
 function Layout({
   operations,
   setSize,
-  updateStackState,
+  updateState,
 }: PropsInterface) {
   const [disableSizeInput, setDisableSizeInput] = useState(false);
   const [disableValueInput, setDisableValueInput] = useState(false);
@@ -30,7 +20,7 @@ function Layout({
     e.preventDefault();
     const newSize = Number(e.currentTarget.elements.size.value);
     setSize(newSize);
-    updateStackState({
+    updateState({
       selectedOperation: e.currentTarget.elements.operations.value,
       value: Number(e.currentTarget.elements.input.value),
     });
