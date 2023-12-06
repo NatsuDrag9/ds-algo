@@ -122,7 +122,7 @@
 
     .form-wrapper {
       font-size: $body-font-size-large;
-      align-items: end;
+      align-items: center;
       width: 50%;
 
       h2 {
@@ -130,10 +130,10 @@
       }
       
       .input-form {
-        align-items: end;
+        align-items: center;
 
         .input-wrapper {
-            justify-content: end;
+            justify-content: center;
         }
       }
     }

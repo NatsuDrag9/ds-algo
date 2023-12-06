@@ -80,8 +80,11 @@
 
 @media only screen and (min-width: $monitor-width) {
     .stack {
+      align-items: start;
+      
         h2 {
             font-size: $header-font-size-large;
+            margin-left: 20%;
         }
     
         .body {

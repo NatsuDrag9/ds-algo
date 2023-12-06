@@ -202,14 +202,14 @@
 
     .form-wrapper {
         width: 50%;
-        // align-items: center;
+        align-items: center;
 
         h2 {
-          font-size: $header-font-size-small
+          font-size: $header-font-size-large;
         }
 
         .input-form {
-          font-size: $body-font-size-small;
+          font-size: $body-font-size-large;
           align-items: center;
 
           .input-wrapper {
@@ -233,5 +233,9 @@
       }
     }
 
+    .head {
+      margin-top: 10%;
+      margin-left: 30%;
+    }
   }
 }
