@@ -1,28 +1,31 @@
-import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
+import "./style.scss";
+import { useState } from "react";
 
-function BootstrapNavbar() {
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Nav className="me-auto">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/stack">
-                Stack
-              </Nav.Link>
-              <Nav.Link as={Link} to="/linkedlist">
-                Linked List
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Container>
-      </Navbar>
-      <br />
+      <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav className={menuOpen ? "open" : ""}>
+        <ul className={menuOpen ? "open" : ""}>
+          <li>
+            <NavLink to="/stack">Stack</NavLink>
+          </li>
+          <li>
+            <NavLink to="/queue">Queue</NavLink>
+          </li>
+          <li>
+            <NavLink to="/linkedlist">Linked List</NavLink>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 }
 
-export default BootstrapNavbar;
+export default Navbar;
