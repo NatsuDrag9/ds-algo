@@ -196,3 +196,42 @@
 
   }
 }
+
+@media only screen and (min-width: $monitor-width) {
+  .linked-list {
+
+    .form-wrapper {
+        width: 50%;
+        // align-items: center;
+
+        h2 {
+          font-size: $header-font-size-small
+        }
+
+        .input-form {
+          font-size: $body-font-size-small;
+          align-items: center;
+
+          .input-wrapper {
+            justify-content: center;
+          }
+        }
+    }
+
+    .rect-wrapper{
+      width: 35%;
+      
+      .rect {
+        height: 7%;
+        font-size: $body-font-size-small;
+
+        &::after {
+          top: 30%;
+          transform: translate(0%, 70%);
+          height: 100%;
+        }
+      }
+    }
+
+  }
+}
