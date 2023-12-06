@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  margin-top: 10%;
 
   h2 {
     color: palevioletred;
@@ -57,6 +58,8 @@
 
 @media only screen and (max-width: $mobile-width) {
   .stack {
+    margin-top: 0;
+    
     h2 {
         font-size: $header-font-size-small;
     }
@@ -111,9 +114,9 @@
 
 @keyframes peekBackgroundChange {
   0% {
-    background-color: grey; /* Initial background color */
+    background-color: grey;
   }
   100% {
-    background-color: palevioletred; /* Color you want to change to */
+    background-color: palevioletred;
   }
 }
