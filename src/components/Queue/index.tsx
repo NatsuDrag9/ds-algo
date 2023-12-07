@@ -16,13 +16,11 @@ function Queue() {
               type="text"
               name="input"
               id="input"
-              placeholder="node value"
+              placeholder="value"
               required
             />
           </div>
         );
-      case queueOperations[2]:
-        return null;
       case queueOperations[3]:
         return <p>Front element of the queue: {queue.front() ? queue.front() : "No element"}</p>;
       case queueOperations[4]:
