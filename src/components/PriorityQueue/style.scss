@@ -1,0 +1,179 @@
+@import "../../App.scss";
+
+.pqueue {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    // border: 1px solid beige;
+
+    h2 {
+      color: palevioletred;
+    }
+
+    .input-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;;
+
+      .input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: space-evenly;
+
+        label {
+          width: max(150px, 20%);
+          margin: 5%;
+        }
+
+        input {
+          height: 30px;
+          border-radius: 5px;
+          width: max(150px, 20%);
+        }
+      }
+
+      label,
+      input,
+      select,
+      option {
+        color: antiquewhite;
+      }
+
+      select {
+        width: 150px;
+        height: 30px;
+        cursor: pointer;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      button:hover {
+        transform: translate(1px, 1px);
+      }
+    }
+  }
+
+  .rect-wrapper {
+    height: 70%;
+    width: max(100px, 30%);
+    margin-right: 5%;
+    //   border: 1px solid aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .rect {
+      height: 10%;
+      width: max(100px, 75%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid aliceblue;
+      margin: 0;
+      background-color: grey;
+
+      p {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .value {
+        border-right: 1px solid aliceblue;
+        padding-right: 7%;
+      }
+      
+      .priority {
+        padding-left: 7%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .pqueue {
+    flex-direction: column;
+    margin-top: 0;
+
+    .form-wrapper {
+      height: 50%;
+      width: 95%;
+      font-size: $body-font-size-small;
+      h2 {
+        font-size: $header-font-size-small;
+      }
+    }
+    .rect-wrapper {
+      height: 50%;
+      width: 95%;
+      justify-content: start;
+
+      .rect {
+        width: max(100px, 50%);
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $monitor-width) {
+  .pqueue {
+    flex-direction: row;
+
+    .form-wrapper {
+      font-size: $body-font-size-large;
+      align-items: center;
+      width: 50%;
+
+      h2 {
+        font-size: $header-font-size-large;
+      }
+      
+      .input-form {
+        align-items: center;
+
+        .input-wrapper {
+            justify-content: center;
+        }
+      }
+    }
+
+    .rect-wrapper {
+      width: 35%;
+
+      .rect {
+        width: max(150px, 55%);
+
+        .value {
+            padding-right: 10%;
+        }
+
+        .priority {
+            padding-left: 10%;
+        }
+      }
+    }
+  }
+}

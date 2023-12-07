@@ -6,8 +6,28 @@ export function usePriorityQueueHook() {
   const [priorityQueue, setPriorityQueue] = useState<PriorityQueue[]>([]);
   const [selectedOperation, setSelectedOperation] = useState(queueOperations[0]);
 
-  const enqueue = useCallback((inputValue: number | string) => {
-    setPriorityQueue((prevArray) => ([...prevArray, inputValue]));
+  const enqueue = useCallback((priority: number , inputValue: number | string) => {
+    
+    if( isEmpty()) {
+        setPriorityQueue([{value: inputValue, priority: priority}]);
+    }
+    else {
+        setPriorityQueue((prevArray) => {
+            const tempArr:PriorityQueue[] = [...prevArray];
+            let added = false;
+            for(let i = 0; i < tempArr.length; i++){
+                if(priority > tempArr[i].priority) {                   
+                    tempArr.splice(i, 0, {value: inputValue, priority: priority});
+                    added = true;
+                    break;
+                }
+            }
+            if(!added){
+                tempArr.push({value: inputValue, priority: priority});
+            }
+            return ([...tempArr]);
+        })
+    }
   },[priorityQueue]);
 
   const dequeue = useCallback(() => {

@@ -6,6 +6,7 @@ export interface FormElements extends HTMLFormControlsCollection {
   firstInput: HTMLInputElement;
   position: HTMLInputElement;
   operations: HTMLSelectElement;
+  priority: HTMLInputElement;
 }
 
 export interface InputFormElement extends HTMLFormElement {
@@ -33,5 +34,5 @@ export interface LinkedList<T> {
 
 export interface PriorityQueue {
   value: number | string;
-  priority: number
+  priority: number;
 }
