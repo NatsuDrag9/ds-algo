@@ -20,7 +20,10 @@ function Navbar() {
             <NavLink to="/queue">Queue</NavLink>
           </li>
           <li>
-            <NavLink to="/linkedlist">Linked List</NavLink>
+            <NavLink to="/linked-list">Linked List</NavLink>
+          </li>
+          <li>
+            <NavLink to="/priority-queue">Priority Queue</NavLink>
           </li>
         </ul>
       </nav>

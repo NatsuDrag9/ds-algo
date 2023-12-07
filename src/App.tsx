@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import LinkedList from "./components/Linkedlist";
 import Queue from "./components/Queue";
+import PriorityQueue from "./components/PriorityQueue";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
         <Route path="/" element={<Stack />}>
         </Route>
         <Route path="/stack" element={<Stack />} />
-        <Route path="/linkedlist" element={<LinkedList />} />
+        <Route path="/linked-list" element={<LinkedList />} />
         <Route path="/queue" element={<Queue />} />
+        <Route path="/priority-queue" element={<PriorityQueue />} />
       </Routes>
     </div>
   );

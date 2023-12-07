@@ -30,3 +30,8 @@ export interface NodeInterface<T> {
 export interface LinkedList<T> {
   head: NodeInterface<T> | null;
 }
+
+export interface PriorityQueue {
+  value: number | string;
+  priority: number
+}
