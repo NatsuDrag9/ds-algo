@@ -7,9 +7,9 @@ function Navbar() {
   return (
     <>
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span className={menuOpen ? "clockwise" : ""}></span>
+        <span className={menuOpen ? "hide" : ""}></span>
+        <span className={menuOpen ? "anticlockwise" : ""}></span>
       </div>
       <nav className={menuOpen ? "open" : ""}>
         <ul className={menuOpen ? "open" : ""}>

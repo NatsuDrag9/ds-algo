@@ -19,6 +19,7 @@
     background-color: white;
     border-radius: 0.2rem;
     margin: 0.15rem 0;
+    transition: all 0.3s ease-out;
   }
 }
 
@@ -66,14 +67,33 @@ nav {
   .menu {
     display: flex;
     z-index: 99;
+
+    .clockwise {
+      rotate: 45deg;
+      transition: rotate 0.3s ease-in;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .anticlockwise {
+      rotate: -45deg;
+      translate: (-0.15rem -0.7rem);
+      transition: rotate 0.3s ease-in;
+    }
   }
+
   nav {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: space-around;
     height: 100%;
     width: max(100px, 30%);
+    position: absolute;
+    left: -30%;
+    transition: all 0.5s ease;
 
     ul {
       display: none;
@@ -102,6 +122,6 @@ nav {
   }
 
   nav.open {
-    display: flex;
+    left: 0;
   }
 }
