@@ -130,7 +130,7 @@ export function useMySetHook() {
       }
     });
     return intersectionSet;
-  }, [set1, set2]);
+  }, [set1, hasElement]);
 
   // Returns the difference between the two sets
   const difference = useCallback(() => {
@@ -141,7 +141,7 @@ export function useMySetHook() {
       }
     });
     return differenceSet;
-  }, [set1, set2]);
+  }, [set1, hasElement]);
 
   // Checks whether one set is a subset of another
   const subset = useCallback(() => {
@@ -156,7 +156,7 @@ export function useMySetHook() {
     else {
       return "Neither sets are subset of each other";
     }
-  }, [set1, set2]);
+  }, [set1, set2, hasElement]);
 
   return {
     isEmpty,
