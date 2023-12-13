@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import LinkedList from "./components/Linkedlist";
 import Queue from "./components/Queue";
 import PriorityQueue from "./components/PriorityQueue";
+import MySet from "./components/MySet";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/linked-list" element={<LinkedList />} />
         <Route path="/queue" element={<Queue />} />
         <Route path="/priority-queue" element={<PriorityQueue />} />
+        <Route path="/set" element={<MySet />} />
       </Routes>
     </div>
   );

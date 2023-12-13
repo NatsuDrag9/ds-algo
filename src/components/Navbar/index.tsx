@@ -25,6 +25,9 @@ function Navbar() {
           <li>
             <NavLink to="/priority-queue">Priority Queue</NavLink>
           </li>
+          <li>
+            <NavLink to="/set">Set</NavLink>
+          </li>
         </ul>
       </nav>
     </>
