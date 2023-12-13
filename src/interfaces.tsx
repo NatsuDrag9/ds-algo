@@ -7,6 +7,9 @@ export interface FormElements extends HTMLFormControlsCollection {
   position: HTMLInputElement;
   operations: HTMLSelectElement;
   priority: HTMLInputElement;
+  hasElementInput: HTMLInputElement;
+  addElementInput: HTMLInputElement;
+  removeElementInput: HTMLInputElement;
 }
 
 export interface InputFormElement extends HTMLFormElement {
