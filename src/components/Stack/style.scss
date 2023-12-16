@@ -1,16 +1,17 @@
 @import "../../App.scss";
 
 .stack {
-  height: 100%;
-  width: 100%;
-  //   border: 1px solid rgb(196, 174, 174);
+  height: 90%;
+  width: 85%;
+  // border: 1px solid rgb(196, 174, 174);
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  margin-top: 10%;
+  margin: 5% 10%;
 
-  h2, h4 {
+  h2,
+  h4 {
     color: palevioletred;
   }
 
@@ -59,9 +60,9 @@
 @media only screen and (max-width: $mobile-width) {
   .stack {
     margin-top: 0;
-    
+
     h2 {
-        font-size: $header-font-size-small;
+      font-size: $header-font-size-small;
     }
 
     .body {
@@ -82,34 +83,42 @@
 }
 
 @media only screen and (min-width: $monitor-width) {
-    .stack {
-      align-items: start;
-      
-        h2 {
-            font-size: $header-font-size-large;
-            margin-left: 20%;
-        }
-    
-        .body {
-          font-size: $body-font-size-large;
+  .stack {
+    align-items: start;
 
-          .rect-wrapper {
-            height: 70%;
-            width: max(100px, 30%);
-            //   border: 1px solid aqua;
-      
-            .rect {
-              height: 60px;
-              width: max(200px, 50%);
-            }
-      
-            .length {
-              height: 80px;
-              width: min(220px, 100%);
-            }
-          }
+    h2 {
+      font-size: $header-font-size-large;
+    }
+
+    h2,
+    h4 {
+      margin-left: 20%;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    .body {
+      font-size: $body-font-size-large;
+
+      .rect-wrapper {
+        height: 70%;
+        width: max(100px, 30%);
+        //   border: 1px solid aqua;
+
+        .rect {
+          height: 60px;
+          width: max(200px, 50%);
+        }
+
+        .length {
+          height: 80px;
+          width: min(220px, 100%);
         }
       }
+    }
+  }
 }
 
 @keyframes peekBackgroundChange {
