@@ -1,0 +1,191 @@
+@import "../../App.scss";
+
+.my-set {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  margin-top: 10%;
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 40%;
+    height: 90%;
+    // border: 1px solid beige;
+
+    h2 {
+      color: palevioletred;
+    }
+
+    .input-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .radio-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 3% 0;
+
+        label {
+          margin: 0 1%;
+        }
+      }
+
+      .input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        label {
+          width: max(150px, 20%);
+          margin: 5%;
+        }
+
+        input {
+          height: 30px;
+          border-radius: 5px;
+          width: max(150px, 20%);
+        }
+      }
+
+      label,
+      input,
+      select,
+      option {
+        color: antiquewhite;
+      }
+
+      select {
+        width: 150px;
+        height: 30px;
+        cursor: pointer;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      button:hover {
+        transform: translate(1px, 1px);
+      }
+    }
+  }
+
+  .output {
+    height: 70%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    .rect-wrapper {
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+
+      .rect {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .note {
+      margin: 0 20%;
+      width: 60%;
+    }
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .my-set {
+    flex-direction: column;
+    margin-top: 0;
+
+    .form-wrapper {
+      height: 40%;
+      width: 95%;
+      font-size: $body-font-size-small;
+      h2 {
+        font-size: $header-font-size-small;
+      }
+    }
+
+    .output {
+      height: 40%;
+      width: 100%;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .rect-wrapper {
+        width: 95%;
+        justify-content: center;
+
+        .rect {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $monitor-width) {
+  .my-set {
+    flex-direction: row;
+
+    .form-wrapper {
+      font-size: $body-font-size-large;
+      align-items: center;
+      width: 50%;
+
+      h2 {
+        font-size: $header-font-size-large;
+      }
+
+      .input-form {
+        align-items: center;
+
+        .input-wrapper {
+          justify-content: center;
+        }
+      }
+    }
+
+    .output {
+      font-size: $body-font-size-large;
+
+      .rect-wrapper {
+        width: 95%;
+        justify-content: center;
+
+        .rect {
+          width: auto;
+        }
+      }
+
+      .note {
+        margin-left: 40%;
+      }
+    }
+  }
+}

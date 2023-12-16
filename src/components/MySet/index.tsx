@@ -38,7 +38,6 @@ function MySet() {
     switch (mySet.selectedOperation) {
       case mySetOperations[1]:
         // Has element
-        // setIsBinaryOperation(false);
         return (
           <>
             <div className="input-wrapper">
@@ -60,7 +59,6 @@ function MySet() {
         );
       case mySetOperations[2]:
         // Add element
-        // setIsBinaryOperation(false);
         return (
           <div className="input-wrapper">
             <label htmlFor="addElementInput">Enter value</label>
@@ -75,7 +73,6 @@ function MySet() {
         );
       case mySetOperations[3]:
         // Remove element
-        // setIsBinaryOperation(false);
         return (
           <div className="input-wrapper">
             <label htmlFor="removeElementInput">Enter value</label>
@@ -90,7 +87,6 @@ function MySet() {
         );
       case mySetOperations[4]:
         // Size
-        // setIsBinaryOperation(false);
         return (
           <p>
             Size of {selectedSet}: {mySet.length(selectedSet)}
@@ -103,7 +99,6 @@ function MySet() {
 
       case mySetOperations[8]:
         // isSubset
-        // setIsBinaryOperation(true);
         return <p>{mySet.subset()}</p>;
 
       default:
@@ -128,7 +123,6 @@ function MySet() {
     switch (mySet.selectedOperation) {
       case mySetOperations[1]:
         // Has element
-        // setIsBinaryOperation(false);
         setHasElementReturn(
           mySet.hasElement(
             selectedSet,
@@ -139,7 +133,6 @@ function MySet() {
         break;
       case mySetOperations[2]:
         // Add element
-        // setIsBinaryOperation(false);
         mySet.addElement(
           selectedSet,
           e.currentTarget.elements.addElementInput?.value
@@ -148,7 +141,6 @@ function MySet() {
         break;
       case mySetOperations[3]:
         // Remove element
-        // setIsBinaryOperation(false);
         mySet.removeElement(
           selectedSet,
           e.currentTarget.elements.removeElementInput?.value
@@ -158,19 +150,16 @@ function MySet() {
 
       case mySetOperations[5]:
         // Union
-        // setIsBinaryOperation(true);
         setUnionSet(mySet.union());
         break;
 
       case mySetOperations[6]:
         // Intersection
-        // setIsBinaryOperation(true);
         setIntersectionSet(mySet.intersection());
         break;
 
       case mySetOperations[7]:
         // Difference
-        // setIsBinaryOperation(true);
         setDifferenceSet(mySet.difference());
         break;
 
@@ -184,16 +173,21 @@ function MySet() {
       return null;
     } else {
       return (
+        // <div className="rect-wrapper">
+        //   <p>{set}: [</p>
+        //   {arr.map((element, index) => {
+        //     return (
+        //       <p className="rect" key={index}>
+        //         {element}
+        //       </p>
+        //     );
+        //   })}
+        //   <p>]</p>
+        // </div>
         <div className="rect-wrapper">
-          {set}: [
-          {arr.map((element, index) => {
-            return (
-              <p className="rect" key={index}>
-                {element}
-              </p>
-            );
-          })}
-          ]
+          <p className="rect">
+            {set}: [ {arr.map((element, index) => `${element}, `)}]
+          </p>
         </div>
       );
     }
@@ -206,7 +200,13 @@ function MySet() {
         return renderOutput("Union set", unionSet);
       case mySetOperations[6]:
         // Intersection
-        return renderOutput("Intersection set", intersectionSet);
+        return intersectionSet.length !== 0 ? (
+          renderOutput("Intersection set", intersectionSet)
+        ) : (
+          <>
+            <p className="note">No common element found</p>
+          </>
+        );
       case mySetOperations[7]:
         // Difference
         return renderOutput("Difference set", differenceSet);
@@ -219,33 +219,30 @@ function MySet() {
     <div className="my-set">
       <div className="form-wrapper">
         <h2>Visualizing Set</h2>
+        <h4>Takes strings and numbers as inputs</h4>
         <form className="input-form" onSubmit={handleSubmit}>
           <div className="radio-group">
             <label>Select set:</label>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="set"
-                  value={SET1}
-                  checked={selectedSet === SET1}
-                  onChange={() => handleRadioSelect(SET1)}
-                />
-                Set 1
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="set"
-                  value={SET2}
-                  checked={selectedSet === SET2}
-                  onChange={() => handleRadioSelect(SET2)}
-                />
-                Set 2
-              </label>
-            </div>
+            <label>
+              <input
+                type="radio"
+                name="set"
+                value={SET1}
+                checked={selectedSet === SET1}
+                onChange={() => handleRadioSelect(SET1)}
+              />
+              Set 1
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="set"
+                value={SET2}
+                checked={selectedSet === SET2}
+                onChange={() => handleRadioSelect(SET2)}
+              />
+              Set 2
+            </label>
           </div>
           {mySet.isEmpty(selectedSet) ? (
             <>
@@ -285,15 +282,17 @@ function MySet() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      {isBinaryOperation === false ? (
-        renderOutput(selectedSet, mySet.values(selectedSet))
-      ) : (
-        <>
-          {renderOutput(SET1, mySet.values(SET1))}
-          {renderOutput(SET2, mySet.values(SET2))}
-          {renderBinOpOutput()}
-        </>
-      )}
+      <div className="output">
+        {isBinaryOperation === false ? (
+          renderOutput(selectedSet, mySet.values(selectedSet))
+        ) : (
+          <>
+            {renderOutput(SET1, mySet.values(SET1))}
+            {renderOutput(SET2, mySet.values(SET2))}
+            {renderBinOpOutput()}
+          </>
+        )}
+      </div>
     </div>
   );
 }
