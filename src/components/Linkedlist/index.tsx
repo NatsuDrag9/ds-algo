@@ -155,7 +155,7 @@ function LinkedList() {
         <form className="input-form" onSubmit={handleSubmit}>
           {linkedList.linkedList.head === null ? (
             <>
-              <h4>Create first node</h4>
+              <p>Create first node</p>
               <div className="input-wrapper">
                 <label htmlFor="firstInput">Enter value</label>
                 <input
