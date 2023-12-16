@@ -151,6 +151,7 @@ function LinkedList() {
     <div className="linked-list">
       <div className="form-wrapper">
         <h2>Visualizing Linked List</h2>
+        <h4>Takes numbers as input</h4>
         <form className="input-form" onSubmit={handleSubmit}>
           {linkedList.linkedList.head === null ? (
             <>

@@ -91,6 +91,7 @@ function PriorityQueue() {
     <div className="pqueue">
       <div className="form-wrapper">
         <h2>Visualizing Priority Queue</h2>
+        <h4>Takes numbers as input</h4>
         <form className="input-form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="operations">Select operation</label>

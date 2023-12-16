@@ -34,6 +34,7 @@ function Stack() {
   return (
     <div className="stack">
       <h2>Visualizing Stack </h2>
+      <h4>Takes numbers as input</h4>
       <div className="body">
         <Layout
           operations={["Push", "Pop", "Peek", "Length"]}
