@@ -6,6 +6,7 @@ import LinkedList from "./components/Linkedlist";
 import Queue from "./components/Queue";
 import PriorityQueue from "./components/PriorityQueue";
 import MySet from "./components/MySet";
+import Heap from "./components/Heap";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/queue" element={<Queue />} />
         <Route path="/priority-queue" element={<PriorityQueue />} />
         <Route path="/set" element={<MySet />} />
+        <Route path="/heap" element={<Heap />} />
       </Routes>
     </div>
   );

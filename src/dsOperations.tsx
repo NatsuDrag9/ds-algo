@@ -11,3 +11,5 @@ export const llOperations = ["Select an operation", "Create node", "Insert node 
 export const mySetOperations = ["Select an operation", "Has element", "Add element", "Remove element", "Size", "Union", "Intersection", "Difference", "isSubset"]
 export const SET1 = "Set 1";
 export const SET2 = "Set 2";
+
+export const heapOperations = ["Select an operation", "Insert", "Remove", "Sort"]

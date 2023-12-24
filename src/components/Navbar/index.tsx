@@ -28,6 +28,9 @@ function Navbar() {
           <li>
             <NavLink to="/set">Set</NavLink>
           </li>
+          <li>
+            <NavLink to="/heap">Heap</NavLink>
+          </li>
         </ul>
       </nav>
     </>
