@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { heapOperations } from "../dsOperations";
 
 /* 
@@ -16,6 +16,13 @@ export function useMinHeapHook() {
   const [selectedOperation, setSelectedOperation] = useState<string>(
     heapOperations[0]
   );
+
+  // Inserts the first element into the heap
+  const createHeap = useCallback((inputValue: number) => {
+    setHeapArray((prevArray) => {
+      return [...prevArray, inputValue];
+    })
+  }, [heapArray]);
 
   // Inserts an element into the heap
   const insert = useCallback(
@@ -113,16 +120,24 @@ export function useMinHeapHook() {
       const minElement = remove();
       sortedArray.push(minElement);
     }
+    return sortedArray;
   }, [heapArray]);
+
+  // Checks whether the heap is empty or not
+  const isEmpty = useCallback(() => {
+    return heapArray.length <= 1;
+  }, [heapArray])
 
   return {
     heapArray,
     selectedOperation,
     setSelectedOperation,
     setHeapArray,
+    createHeap,
     insert,
     remove,
-    sort
+    sort,
+    isEmpty
   };
 }
 
@@ -134,6 +149,13 @@ export function useMaxHeapHook() {
   const [selectedOperation, setSelectedOperation] = useState<string>(
     heapOperations[0]
   );
+
+    // Inserts the first element into the heap
+    const createHeap = useCallback((inputValue: number) => {
+      setHeapArray((prevArray) => {
+        return [...prevArray, inputValue];
+      })
+    }, [heapArray]);
 
   // Inserts an element into the heap
   const insert = useCallback(
@@ -169,10 +191,10 @@ export function useMaxHeapHook() {
     [setHeapArray]
   );
 
-  // Removes the smallest element (which is always at the
+  // Removes the largest element (which is always at the
   // first index of the array) from the heap
   const remove = useCallback(() => {
-    const minElement = heapArray[1];
+    const maxElement = heapArray[1];
 
     // Re-arrange the array
     setHeapArray((prevArray) => {
@@ -220,7 +242,7 @@ export function useMaxHeapHook() {
       }
       return newArray;
     });
-    return minElement;
+    return maxElement;
   }, [heapArray, setHeapArray]);
 
   // Sorting the heap in ascending order
@@ -231,15 +253,23 @@ export function useMaxHeapHook() {
       const minElement = remove();
       sortedArray.push(minElement);
     }
+    return sortedArray;
   }, [heapArray]);
+
+   // Checks whether the heap is empty or not
+   const isEmpty = useCallback(() => {
+    return heapArray.length <= 1;
+  }, [heapArray])
 
   return {
     heapArray,
     selectedOperation,
     setSelectedOperation,
     setHeapArray,
+    createHeap,
     insert,
     remove,
-    sort
+    sort,
+    isEmpty
   };
 }

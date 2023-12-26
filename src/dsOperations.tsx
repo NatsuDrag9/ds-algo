@@ -12,4 +12,6 @@ export const mySetOperations = ["Select an operation", "Has element", "Add eleme
 export const SET1 = "Set 1";
 export const SET2 = "Set 2";
 
-export const heapOperations = ["Select an operation", "Insert", "Remove", "Sort"]
+export const heapOperations = ["Select an operation", "Insert", "Remove"]
+export const MIN_HEAP = "Min heap";
+export const MAX_HEAP = "Max heap";
