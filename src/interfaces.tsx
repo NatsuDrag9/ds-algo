@@ -39,3 +39,10 @@ export interface PriorityQueue {
   value: number | string;
   priority: number;
 }
+
+export interface TrieNodeInterface {
+  keys: Map<string, TrieNodeInterface>;
+  end: boolean;
+  setEnd: () => void;
+  isEnd: () => boolean;
+}

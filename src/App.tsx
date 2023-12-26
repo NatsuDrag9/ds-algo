@@ -7,6 +7,7 @@ import Queue from "./components/Queue";
 import PriorityQueue from "./components/PriorityQueue";
 import MySet from "./components/MySet";
 import Heap from "./components/Heap";
+import Trie from "./components/Trie";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/priority-queue" element={<PriorityQueue />} />
         <Route path="/set" element={<MySet />} />
         <Route path="/heap" element={<Heap />} />
+        <Route path="/trie" element={<Trie />} />
       </Routes>
     </div>
   );

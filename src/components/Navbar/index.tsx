@@ -31,6 +31,9 @@ function Navbar() {
           <li>
             <NavLink to="/heap">Heap</NavLink>
           </li>
+          <li>
+            <NavLink to="/trie">Trie</NavLink>
+          </li>
         </ul>
       </nav>
     </>

@@ -15,3 +15,5 @@ export const SET2 = "Set 2";
 export const heapOperations = ["Select an operation", "Insert", "Remove"]
 export const MIN_HEAP = "Min heap";
 export const MAX_HEAP = "Max heap";
+
+export const trieOperations = ["Select an operation", "Add", "isWord"];
