@@ -1,1 +1,130 @@
-@import '../../App.scss';
+@import "../../App.scss";
+
+.trie {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  margin: 10% 5%;
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 40%;
+    height: 90%;
+    // border: 1px solid beige;
+
+    h2,
+    h4 {
+      color: palevioletred;
+    }
+
+    .input-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .radio-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 3% 0;
+
+        label {
+          margin: 0 1%;
+        }
+      }
+
+      .input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        label {
+          width: max(150px, 20%);
+          margin: 5%;
+        }
+
+        input {
+          height: 30px;
+          border-radius: 5px;
+          width: max(150px, 20%);
+        }
+      }
+
+      label,
+      input,
+      select,
+      option {
+        color: antiquewhite;
+      }
+
+      select {
+        width: 150px;
+        height: 30px;
+        cursor: pointer;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      button:hover {
+        transform: translate(1px, 1px);
+      }
+    }
+  }
+
+  .output {
+    height: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+
+    .trie-wrapper {
+      height: auto;
+      width: 80%;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      height: 80%;
+
+      .node {
+        circle {
+          fill: #69b3a2;
+          stroke: wheat;
+          stroke-width: 1px;
+        }
+    
+        text {
+          font: 12px sans-serif;
+          fill: #4f4f4f;
+          transform: rotate(270deg);
+        }
+      }
+    
+      .link {
+        fill: none;
+        stroke: wheat;
+        stroke-width: 0.4px;
+      }
+    }
+
+  }
+}

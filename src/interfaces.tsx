@@ -10,6 +10,7 @@ export interface FormElements extends HTMLFormControlsCollection {
   hasElementInput: HTMLInputElement;
   addElementInput: HTMLInputElement;
   removeElementInput: HTMLInputElement;
+  isWordElementInput: HTMLInputElement;
 }
 
 export interface InputFormElement extends HTMLFormElement {
@@ -45,4 +46,9 @@ export interface TrieNodeInterface {
   end: boolean;
   setEnd: () => void;
   isEnd: () => boolean;
+}
+
+export interface TreeInterface {
+  name: string;
+  children: TreeInterface[];
 }
