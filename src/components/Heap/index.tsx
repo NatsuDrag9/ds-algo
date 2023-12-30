@@ -1,18 +1,81 @@
-import { InputFormElement } from "../../interfaces";
+import { InputFormElement, TreeInterface } from "../../interfaces";
 import { MAX_HEAP, MIN_HEAP, heapOperations } from "../../dsOperations";
 import "./style.scss";
 import { useMaxHeapHook, useMinHeapHook } from "../../hooks/heapHook";
 import { useState } from "react";
+import { AnimatedTree } from "react-tree-graph";
 
 function Heap() {
   const minHeap = useMinHeapHook();
   const maxHeap = useMaxHeapHook();
   const [selectedHeap, setSelectedHeap] = useState<string>(MIN_HEAP);
   const [removeReturnValue, setRemoveReturnValue] = useState<number>();
+  const [minHeapTreeData, setMinHeapTreeData] = useState<TreeInterface>({
+    name: "",
+    children: [],
+  });
+  const [maxHeapTreeData, setMaxHeapTreeData] = useState<TreeInterface>({
+    name: "",
+    children: [],
+  });
   // const [sortReturnValue, setSortedReturnValue] = useState<number[]>([]);
 
   const handleRadioSelect = (heap: string) => {
     setSelectedHeap(heap);
+  };
+
+  const transformMaxHeapToTreeData = (heapArray: number[], index = 1) => {
+    if (index >= heapArray.length) return null;
+
+    const treeNode: TreeInterface = {
+      name: heapArray[index].toString(),
+      children: [],
+    };
+
+    const leftChildIndex = index * 2;
+    const rightChildIndex = index * 2 + 1;
+
+    const leftChildTree = transformMaxHeapToTreeData(heapArray, leftChildIndex);
+    if (leftChildTree) {
+      treeNode.children.push(leftChildTree);
+    }
+
+    const rightChildTree = transformMaxHeapToTreeData(
+      heapArray,
+      rightChildIndex
+    );
+    if (rightChildTree) {
+      treeNode.children.push(rightChildTree);
+    }
+
+    return treeNode;
+  };
+
+  const transformMinHeapToTreeData = (heapArray: number[], index = 1) => {
+    if (index >= heapArray.length) return null;
+
+    const treeNode: TreeInterface = {
+      name: heapArray[index].toString(),
+      children: [],
+    };
+
+    const leftChildIndex = index * 2;
+    const rightChildIndex = index * 2 + 1;
+
+    const leftChildTree = transformMinHeapToTreeData(heapArray, leftChildIndex);
+    if (leftChildTree) {
+      treeNode.children.push(leftChildTree);
+    }
+
+    const rightChildTree = transformMinHeapToTreeData(
+      heapArray,
+      rightChildIndex
+    );
+    if (rightChildTree) {
+      treeNode.children.push(rightChildTree);
+    }
+
+    return treeNode;
   };
 
   const renderOperationInputs = () => {
@@ -52,7 +115,7 @@ function Heap() {
     e.preventDefault();
 
     const heap = selectedHeap === MAX_HEAP ? maxHeap : minHeap;
-    if(heap.isEmpty()) {
+    if (heap.isEmpty()) {
       heap.createHeap(Number(e.currentTarget.elements.firstInput?.value));
     }
 
@@ -71,6 +134,20 @@ function Heap() {
       //   break;
       default:
         break;
+    }
+
+    if (selectedHeap === MIN_HEAP) {
+      // For Min Heap
+      const minHeapTreeData = transformMinHeapToTreeData(minHeap.heapArray);
+      if (minHeapTreeData) {
+        setMinHeapTreeData(minHeapTreeData);
+      }
+    } else if (selectedHeap === MAX_HEAP) {
+      // For Max Heap
+      const maxHeapTreeData = transformMaxHeapToTreeData(maxHeap.heapArray);
+      if (maxHeapTreeData) {
+        setMaxHeapTreeData(maxHeapTreeData);
+      }
     }
   };
 
@@ -200,8 +277,8 @@ function Heap() {
         </form>
       </div>
       <div className="output">
-        <div className="rect-wrapper">
-          {selectedHeap === MIN_HEAP
+        <div className="tree-wrapper">
+          {/* {selectedHeap === MIN_HEAP
             ? !minHeap.isEmpty() &&
               minHeap.heapArray.map((element, index) => {
                 return index > 0 ? (
@@ -217,7 +294,64 @@ function Heap() {
                     {element}
                   </p>
                 ) : null;
-              })}
+              })} */}
+          {selectedHeap === MAX_HEAP ? (
+            <AnimatedTree
+            data={maxHeapTreeData}
+            height={400}
+            width={400}
+            nodeProps={{
+              r: 20, // Circle radius = 10
+              // fill: "grey", // Circle background color
+              // stroke: "#FFF", // Circle border color
+              strokeWidth: 1.5, // Border width
+            }}
+            svgProps={{
+              transform: "rotate(90)",
+              viewBox: "-20 -10 400 400",
+            }}
+            textProps={{
+              textAnchor: "middle",
+              dominantBaseline: "central",
+              x: "-20",
+              y: "-5",
+              style: {
+                fontSize: "12px",
+                fontFamily: '"Courier New", monospace',
+                fontWeight: "500",
+                fill: "#FFF",
+              },
+            }}
+          />
+          ) : (
+            <AnimatedTree
+            data={minHeapTreeData}
+            height={400}
+            width={400}
+            nodeProps={{
+              r: 20, // Circle radius = 10
+              // fill: "grey", // Circle background color
+              // stroke: "#FFF", // Circle border color
+              strokeWidth: 1.5, // Border width
+            }}
+            svgProps={{
+              transform: "rotate(90)",
+              viewBox: "-20 -10 400 400",
+            }}
+            textProps={{
+              textAnchor: "middle",
+              dominantBaseline: "central",
+              x: "-20",
+              y: "-5",
+              style: {
+                fontSize: "12px",
+                fontFamily: '"Courier New", monospace',
+                fontWeight: "500",
+                fill: "#FFF",
+              },
+            }}
+          />
+          )}
         </div>
         {renderOutput()}
       </div>

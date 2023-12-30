@@ -1,0 +1,192 @@
+@import "../../App.scss";
+
+.heap {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  margin: 10% 5%;
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+    // border: 1px solid beige;
+
+    h2,
+    h4 {
+      color: palevioletred;
+    }
+
+    .input-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .radio-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 3% 0;
+
+        label {
+          margin: 0 1%;
+        }
+      }
+
+      .input-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        label {
+          width: max(150px, 20%);
+          margin: 5%;
+        }
+
+        input {
+          height: 30px;
+          border-radius: 5px;
+          width: max(150px, 20%);
+        }
+      }
+
+      label,
+      input,
+      select,
+      option {
+        color: antiquewhite;
+      }
+
+      select {
+        width: 150px;
+        height: 30px;
+        cursor: pointer;
+      }
+
+      button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10%;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      button:hover {
+        transform: translate(1px, 1px);
+      }
+    }
+  }
+
+  .output {
+    height: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+
+    .tree-wrapper {
+      width: 80%;
+      height: 80%;
+
+      .node {
+        circle {
+          fill: grey;
+          stroke: white;
+        }
+    
+        text {
+          font: 12px sans-serif;
+          fill: #4f4f4f;
+          transform: rotate(270deg);
+        }
+      }
+    
+      .link {
+        fill: none;
+        stroke: wheat;
+        stroke-width: 0.4px;
+      }
+    }
+
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+    .heap {
+      flex-direction: column;
+      justify-content: space-between;
+      // margin-top: 0;
+  
+      .form-wrapper {
+        width: 95%;
+        height: 40%;
+        font-size: $body-font-size-small;
+  
+        h2 {
+          font-size: $header-font-size-small;
+        }
+      }
+  
+      .output {
+        height: 45%;
+        width: 95%;
+        display: block;
+        overflow: auto;
+        
+        // justify-content: space-evenly;
+        // border: 1px solid white;
+  
+        .tree-wrapper {
+          width: 95%;
+        }
+  
+        p {
+          margin-top: 20%;
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+  @media only screen and (min-width: $monitor-width) {
+    .heap {
+      flex-direction: row;
+  
+      .form-wrapper {
+        width: 50%;
+        height: 90%;
+        font-size: $body-font-size-large;
+  
+        h2 {
+          font-size: $header-font-size-large;
+        }
+      }
+  
+      .output {
+        height: 60%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $body-font-size-large;
+  
+        .tree-wrapper {
+          width: 70%;
+          height: 80%;
+        }
+      }
+    }
+  }
