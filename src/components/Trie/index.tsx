@@ -164,9 +164,14 @@ function Trie() {
         <div className="trie-wrapper">
           <AnimatedTree
             data={trieTreeData}
-            height={450}
-            width={450}
-            nodeRadius={20}
+            height={400}
+            width={400}
+            nodeProps={{
+              r: 20,        // Circle radius = 10
+              fill: "#ccc", // Circle background color
+              stroke: "#FFF", // Circle border color
+              strokeWidth: 1.5, // Border width
+            }}
             svgProps={{
               transform: "rotate(90)", //rotates the tree to make it verticle
               viewBox: "-20 -10 400 400",
@@ -174,12 +179,14 @@ function Trie() {
             textProps={{
               textAnchor: "middle",
               dominantBaseline: "central",
-              x: "-7",
+              x: "-20",
               y: "-5",
               style: {
-                fontSize: '10px',
-                fontFamily: '"Courier New", monospace'
-              }
+                fontSize: "12px",
+                fontFamily: '"Courier New", monospace',
+                fontWeight: "500",
+                fill: "#FFF",
+              },
             }}
           />
         </div>

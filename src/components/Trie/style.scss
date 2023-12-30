@@ -97,19 +97,13 @@
 
 
     .trie-wrapper {
-      height: auto;
       width: 80%;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: center;
-      // align-items: center;
       height: 80%;
 
       .node {
         circle {
-          fill: #69b3a2;
-          stroke: wheat;
-          stroke-width: 1px;
+          fill: grey;
+          stroke: black;
         }
     
         text {
@@ -126,5 +120,73 @@
       }
     }
 
+  }
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .trie {
+    flex-direction: column;
+    justify-content: space-between;
+    // margin-top: 0;
+
+    .form-wrapper {
+      width: 95%;
+      height: 40%;
+      font-size: $body-font-size-small;
+
+      h2 {
+        font-size: $header-font-size-small;
+      }
+    }
+
+    .output {
+      height: 45%;
+      width: 95%;
+      display: block;
+      overflow: auto;
+      
+      // justify-content: space-evenly;
+      // border: 1px solid white;
+
+      .trie-wrapper {
+        width: 95%;
+      }
+
+      p {
+        margin-top: 20%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $monitor-width) {
+  .trie {
+    flex-direction: row;
+
+    .form-wrapper {
+      width: 50%;
+      height: 90%;
+      font-size: $body-font-size-large;
+
+      h2 {
+        font-size: $header-font-size-large;
+      }
+    }
+
+    .output {
+      height: 60%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $body-font-size-large;
+
+      .trie-wrapper {
+        width: 70%;
+        height: 80%;
+      }
+    }
   }
 }
