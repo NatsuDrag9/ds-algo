@@ -4,4 +4,4 @@ This is a visual implementation of data structures using **Typescript** and **Re
 
 ---
 
-[Medium Article (coming soon...)]()
+[Medium Article](https://rohitimandi.medium.com/visualizing-data-structures-and-algorithms-f86e41a15c40)
